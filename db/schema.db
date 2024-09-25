@@ -1,0 +1,27 @@
+--sqlite3
+
+
+-- Professor definition
+
+CREATE TABLE Professor (
+	professorId INTEGER NOT NULL,
+	NomeDoProfessor TEXT,
+	CONSTRAINT Professor_PK PRIMARY KEY (professorId)
+);
+
+
+
+
+
+
+-- Aluno definition
+
+CREATE TABLE Aluno (
+	AlunoId INTEGER NOT NULL,
+	NomeDoAluno TEXT,
+	ProfessorId INTEGER,
+	CONSTRAINT Aluno_PK PRIMARY KEY (AlunoId),
+	CONSTRAINT Aluno_Professor_FK FOREIGN KEY (ProfessorId) REFERENCES Professor(professorId) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+
