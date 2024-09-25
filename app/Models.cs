@@ -1,5 +1,9 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 public class Professor
 {
+    [Key]
     public int ProfessorId { get; set; }
     public string? Nome { get; set; }
 
@@ -11,10 +15,12 @@ public class Professor
 
 public class Aluno
 {
+    [Key]
     public int AlunoId { get; set; }
     public string? Nome { get; set; }
 
     //Aluno: Possui um ProfessorId como chave estrangeira e uma propriedade de navegação Professor para acessar o professor associado.
+    [ForeignKey("ProfessorId")]
     public int ProfessorId { get; set; }
 
     //propriedade de navegação
